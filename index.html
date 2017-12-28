@@ -1,7 +1,100 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>This is Fred wang's resume page</h1>
-<p>this is some text</p>
+<html lang="en">
+
+    <head>
+        <!--  Meta  -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AeroSolar User Portal</title>
+
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!--Oswald & Roboto Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto" rel="stylesheet">
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+    </head>
+    <body>
+        <div class="col-md-5">
+            <a class="download-kml-btn btn waves-effect waves-blue blue lighten-2 btn" href="../ErrorPic/test.jpg" download="hey.jpg">
+                <i class="fa fa-download"></i> Download KML file
+            </a>
+        </div>
+        <input type="number" min="0 "max="100" step="0.01" id="input" data-toggle="popover" data-content="hi" value="0.33" placeholder="Enter affected module number (0~100 dafault: 0.33)"></input>
+
+        <div class="jumbotron" style="padding-top:1px">
+            <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header table-header not-active">
+                        <div id="title" class="row row-title">
+                            <div class="findings-title">Results Overview</div>
+                            <div class="col-md-1 tooltipped" data-tooltip="Type of the issue">Issue</div>
+                            <div class="col-md-2 tooltipped" data-tooltip="Number of issue panel and its percentage out of the total number of issues">Number of Issue</div>
+                            <div class="col-md-2 tooltipped" data-tooltip="Number of module affected and its percentage out of the total number of modules affected">Module Affected</div>
+                            <div class="col-md-2 tooltipped" data-tooltip="Percentage of module affected out of the total number of modules">Module Affected <b>%</b></div>
+                            <div class="col-md-2 tooltipped" data-tooltip="Power affected by issue panel and its percentage out of the total power affected">Power Affected</div>
+                            <div class="col-md-2 tooltipped" data-tooltip="Percentage of power affected out of the total power of site">Power Affected <b>%</b></div>
+
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row" id='load-icon-row'>
+                        <div class="col-xs-5"></div>
+                        <div class="col-xs-2" id="load-icon">
+                            <i class="fa fa-spinner fa-spin fa-5x fa-fw"></i>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <a class="fa fa-line-chart fa-lg tooltipped" aria-hidden="true" data-tooltip="In Progress"></a>
+        <a class="btn-floating btn-large waves-effect waves-light light-blue darken-2 tooltipped" id="add-project" data-position="right" data-delay="10" data-tooltip="Add New Project"></a>
+        <button id="btn">insert</button>
+        <table class="bordered centered highlight">
+            <thead>
+            <th id='comment'>Comment</th>
+            <th></th>
+        </thead>
+        <tbody id="table"></tbody>
+    </table>
+    <input id="test" data-toggle="popover" date-content="hey"></input>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JavaScripts Cookies Plug-in -->
+    <script type="text/javascript" src="../scripts/js.cookie.js"></script>
+    <script>
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <!-- Amazon AWS JS SDK -->
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.77.0.min.js"></script>
+    <script>
+
+        $("body").popover({placement: 'top',
+            container: 'body',
+            html: true,
+            trigger: 'focus',
+            selector: '#input', //Sepcify the selector here
+        });
+
+        $(`[data-toggle="tooltip"]`).tooltip({
+            delay: 50,
+            position: 'bottom',
+            html: false,
+        });
+    </script>
 </body>
 </html>
