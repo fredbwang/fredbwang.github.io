@@ -1,5 +1,8 @@
 console.log("hello");
 
+var levelNaming = Cookies.get("as_level_naming").split('.');
+var levelPattern = Cookies.get("as_level_pattern");
+
 function parseAdhoc(adhoc, levelPattern) {
     // get the order of level tag patterns
     var indexRegex = /\(i(\d{1})\)/g;
