@@ -45,7 +45,7 @@ a:hover {
   overflow: hidden;
 }
 .uppercase {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 /* Download button */
@@ -160,4 +160,16 @@ p + h3 {
   .profile-img {
     width: 200px;
   }
+}
+
+.contact-info a {
+  color: white;
+}
+
+.col-narrow h3, .col-narrow p {
+  margin-bottom: 10px;
+}
+
+.course-content {
+  margin-left: 10px;
 }
