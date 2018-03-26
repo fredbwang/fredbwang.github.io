@@ -15,25 +15,25 @@ html {
   box-sizing: inherit;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Rotobo', sans-serif;
   margin: 0;
 }
 h1, h2 {
-  font-family: 'Caveat', cursive;
-  font-weight: 400;
+  font-family: 'Roboto', light;
+  font-weight: 200;
 }
 h1 {
-  font-size: 80px;
+  font-size: 50px;
 }
 h2 {
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 0;
 }
 h3 {
   margin: 0;
 }
 a {
-  color: #EF233C;
+  color: #5e67c4;
 }
 a:hover {
   text-decoration: none;
