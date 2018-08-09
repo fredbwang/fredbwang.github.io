@@ -2,147 +2,184 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Go to http://fontawesome.io/get-started/ to generate your own embed code! -->
-  <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
+    <!-- Go to http://fontawesome.io/get-started/ to generate your own embed code! -->
+    <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Borui Wang | Resume</title>
-  <link rel="icon" href="assets/images/rocket.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borui Wang | Resume</title>
+    <link rel="icon" href="assets/images/rocket.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
-  <!-- // Intro -->
-  <header id="about">
-    <a href="assets/files/resume.pdf" download class="btn download">Download PDF</a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#work">Work Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="content-wrap">
-      <img class="profile-img col-narrow" src="assets/images/portrait.jpg" alt="Borui Wang">
-      <div class="col-wide">
-        <h1>Borui Wang</h1>
-        <h2>Web Developer + Life Learner</h2>
-        <p>Completed Master’s degree and seeking full-time software engineer position. Has solid programming skills acquired from well-arranged courses and various projects, especially on web development.
-          <br/> <br/> 
-          I’m really good at exploring and comparing different models/tools/papers/paths and choose the right one to achieve real life tasks most efficiently </p>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- // Work Experience -->
-    <section id="work" class="work">
-      <div class="content-wrap">
-        <h2>Experience</h2>
-
-        <!-- Job 1 Details -->
-        <div class="col-narrow">
-          <h3>Full-stack Developer</h3>
-          <p class="uppercase">Aerospec Technologies</p>
-          <p>October 2017 - Present</p>
+    <!-- // Intro -->
+    <header id="about">
+        <a href="assets/files/resume.pdf" download class="btn download">Download PDF</a>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#work">Work Experience</a>
+            <a href="#interest">Personal Interest</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="content-wrap">
+            <img class="profile-img col-narrow" src="assets/images/portrait.jpg" alt="Borui Wang">
+            <div class="col-wide">
+                <h1>Borui Wang</h1>
+                <h2>Web Developer + Life Learner</h2>
+                <p>Completed Master’s degree and seeking full-time software engineer position. Has solid programming skills acquired from well-arranged courses and various projects, especially on web development.
+                    <br/> <br/> I’m really good at exploring and comparing different models/tools/papers/paths and choose the right one to achieve real life tasks most efficiently </p>
+            </div>
         </div>
+    </header>
 
-        <div class="col-wide job-description">
-          <p>Participated in drone data analysis web platform designated for solar farms, which accepts flight video and meta files, applies issue locating and recognizing algorithms on these data, and produces accurate and substantial reports for customers.</p>
-          Main Works:
-          <ul>
-            <li> Designed and Maintained MySQL database for user authentication and solar site drone data management; Applied vertical sharding to tables with massive data (million level); Deployed database to AWS RDS.</li>
-            <li> Acted as a key role in developing production website with <b>PHP</b>, <b>Java</b>, <b>Bootstrap</b>, <b>Node.js</b>, <b>Redis</b> and <b>MySQL</b> on Apache server; Migrated native PHP website to <b>Laravel/Lumen</b> framework. </li>
-            <li> Tested website functionality and performance with <b>PHPUnit</b>, <b>Postman</b>, <b>JMeter</b> and <b>PageSpeed Insights</b>; Maintained SSL security, log capturing &amp; analysis, website deployment and testing. </li>
-            <li> Developed a PHP PDF drawing library based on fpdf which parses kml/kmz files to a well-organized pdf page; Participated in open-source project geoxml3, a web-side kml parsing library.</li>
-          </ul>
-          <p>Explore more at <a href="http://www.aerospecsolar.com" target="_blank">Aerospec Solar Portal</a>.</p>
+    <main>
+        <!-- // Work Experience -->
+        <section id="work" class="work">
+            <div class="content-wrap">
+                <h2>Experience</h2>
+
+                <!-- Job 1 Details -->
+                <div class="col-narrow">
+                    <h3>Full-stack Developer</h3>
+                    <p class="uppercase">Aerospec Technologies</p>
+                    <p>October 2017 - Present</p>
+                </div>
+
+                <div class="col-wide job-description">
+                    <p>Participated in drone data analysis web platform designated for solar farms, which accepts flight video and meta files, applies issue locating and recognizing algorithms on these data, and produces accurate and substantial reports
+                        for customers.</p>
+                    Main Works:
+                    <ul>
+                        <li> Designed and Maintained MySQL database for user authentication and solar site drone data management; Applied vertical sharding to tables with massive data (million level); Deployed database to AWS RDS.</li>
+                        <li> Acted as a key role in developing production website with <b>PHP</b>, <b>Java</b>, <b>Bootstrap</b>, <b>Node.js</b>, <b>Redis</b> and <b>MySQL</b> on Apache server; Migrated native PHP website to <b>Laravel/Lumen</b> framework.
+                        </li>
+                        <li> Tested website functionality and performance with <b>PHPUnit</b>, <b>Postman</b>, <b>JMeter</b> and <b>PageSpeed Insights</b>; Maintained SSL security, log capturing &amp; analysis, website deployment and testing. </li>
+                        <li> Developed a PHP Map to PDF conversion tool based on tcpdf which parses kml/kmz files to well-organized pdf maps, currently supporting placemarks and ground overlays (Link:
+                            <a href="github.com/fredbwang/TCPDF-easyKMZ">TCPDF-easyKMZ</a>); </li>
+                        <li> Participated in open-source Javascript project geoxml3, a web-side kml parsing library.</li>
+                    </ul>
+                    <p>Explore more at <a href="http://www.aerospecsolar.com" target="_blank">Aerospec Solar Portal</a>.</p>
+                </div>
+
+                <!-- Job 2 Details -->
+                <div class="col-narrow">
+                    <h3>Software Engineer Intern</h3>
+                    <p class="uppercase">Adherence Pills</p>
+                    <p>April 2017-June 2017</p>
+                </div>
+                <div class="col-wide job-description">
+                    <p>Adherence Pills is a start-up company providing medicine, prescription and appointment monitoring service. A smart pillbox together with remote monitoring software are designed to better assistant doctors and patients.</p>
+                    <ul>
+                        <li>
+                            Acquainted with the use cases, hardware, frontend (<b>Angular JS</b>), and backend (<b>Express</b>, <b>MongoDB</b>).
+                        </li>
+                        <li>
+                            Migrated web app to Google Cloud Platform, configured database and network, checked main functions and use cases.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 Details -->
+                <div class="col-narrow">
+                    <h3>Team Leader</h3>
+                    <p class="uppercase">Northwestern University</p>
+                    <p>April 2017 - June 2014</p>
+                </div>
+
+                <div class="col-wide job-description">
+                    <p> &bull; Built an indoor lost and found system with RFID tags on item, ID reader and Raspberry pi as registration area terminal, smart phone as server, Bluetooth LE for server-client communication.
+                        <br/> &bull; Built a web application with Express backend framework, Jade frontend template and MongoDB database, and realized functions of item registration, locating and alarming.
+                        <br/> &bull; Further proposed an outdoor extension via IPv6 network on Bluetooth device and interfaces on multiple advanced algorithms or smart home scenarios.
+                    </p>
+                    <a href="https://github.com/fredbwang/MFRC522-python" target="_blank">
+                        <i class="fa fa-github"></i> RFID port reading</a>
+                    <br/>
+                    <a href="https://github.com/fredbwang/bleno">
+                        <i class="fa fa-github"></i> BLE connection</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- // Interest -->
+        <section id="interest" class="interest">
+            <div class="content-wrap">
+
+                <h2>Personal Interest</h2>
+
+                <div class="col-narrow">
+                    <h3>A forum mocking slickdeals</h3>
+                    <p class="uppercase"></p>
+                    <p>July 2018 - Present</p>
+                </div>
+
+                <div class="col-wide job-description">
+                    <p>A forum including (upside down): channels, threads, replies, votes, and other common features.</p>
+                    Main Features:
+                    <ul>
+                        <li>Laravel Framework</li>
+                        <li>TDD development</li>
+                        <li>Vue.js</li>
+                    </ul>
+                    <p>
+                        Explore at
+                        <a class="card-link" href="http://www.borei-coding-land.com/" target="_blank">visit site</a>
+                        <br>
+                        <a href="https://github.com/fredbwang/A-slickdeals-like-forum-site" target="_blank">
+                            <i class="fa fa-github"></i> A-slickdeals-like-forum-site</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- // Education -->
+        <section id="education" class="education">
+            <div class="content-wrap">
+                <h2>Education</h2>
+
+                <!-- School 1 details. -->
+                <h3>Northwestern University, Evanston, IL</h3>
+                <p>Master of Science in Electrical Engineering, September 2016 - December 2017</p>
+                <p class='course-content'>
+                    &bull; Design &amp; Analysis of Algorithms
+                    <br/>&bull; Data Management &amp; Info Processing
+                    <br/>&bull; Machine Learning
+                    <br/>&bull; Advanced Computer Vision
+                </p>
+
+                <!-- School 2 details. -->
+                <h3>Zhejiang University (ZJU), Hangzhou, </h3>
+                <p>Bachelor of Engineering in Control Science, August 2012 - June 2016</p>
+                <p></p>
+
+            </div>
+        </section>
+    </main>
+
+
+    <!-- // Footer & contact info -->
+    <footer id="contact">
+        <div class="content-wrap">
+            <h2>Keep in Touch</h2>
+
+            <!-- Social media links. Add or remove any networks. -->
+            <div class="contact-info">
+                <a href="mailto:boruiwang2016@u.northwestern.edu"><i class="fa fa-envelope"></i></a>
+                <a href="https://fredbwang.github.io"><i class="fa fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/wbrnwu"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100013410913290"><i class="fa fa-facebook-square"></i></a>
+            </div>
+
+            <p>Copyright 2018 by Borui Wang</p>
         </div>
-
-        <!-- Job 2 Details -->
-        <div class="col-narrow">
-          <h3>Software Engineer Intern</h3>
-          <p class="uppercase">Adherence Pills</p>
-          <p>April 2017-June 2017</p>
-        </div>
-        <div class="col-wide job-description">
-          <p>Adherence Pills is a start-up company providing medicine, prescription and appointment monitoring service. A smart pillbox together with remote monitoring software are designed to better assistant doctors and patients.</p>
-          <ul>
-            <li>
-              Acquainted with the use cases, hardware, frontend (<b>Angular JS</b>), and backend (<b>Express</b>, <b>MongoDB</b>).
-            </li>
-            <li>
-              Migrated web app to Google Cloud Platform, configured database and network, checked main functions and use cases.
-            </li>
-          </ul>
-        </div>
-
-        <!-- Job 3 Details -->
-        <div class="col-narrow">
-          <h3>Team Leader</h3>
-          <p class="uppercase">Northwestern University</p>
-          <p>April 2017 - June 2014</p>
-        </div>
-
-        <div class="col-wide job-description">
-          <p>  &bull; Built an indoor lost and found system with RFID tags on item, ID reader and Raspberry pi as registration area terminal, smart phone as server, Bluetooth LE for server-client communication. 
-            <br/> &bull; Built a web application with Express backend framework, Jade frontend template and MongoDB database, and realized functions of item registration, locating and alarming.
-            <br/> &bull; Further proposed an outdoor extension via IPv6 network on Bluetooth device and interfaces on multiple advanced algorithms or smart home scenarios.
-          </p>
-          <a href="https://github.com/fredbwang/MFRC522-python" target="_blank">
-            <i class="fa fa-github"></i> RFID port reading</a>
-          <br/>
-          <a href="https://github.com/fredbwang/bleno">
-            <i class="fa fa-github"></i> BLE connection</a>
-        </p>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- // Education -->
-    <section id="education" class="education">
-      <div class="content-wrap">
-        <h2>Education</h2>
-
-        <!-- School 1 details. -->
-        <h3>Northwestern University, Evanston, IL</h3>
-        <p>Master of Science in Electrical Engineering, September 2016 - December 2017</p>
-        <p class='course-content'>
-              &bull; Design &amp; Analysis of Algorithms 
-          <br/>&bull; Data Management &amp; Info Processing
-          <br/>&bull; Machine Learning
-          <br/>&bull; Advanced Computer Vision
-        </p>
-
-        <!-- School 2 details. -->
-        <h3>Zhejiang University (ZJU), Hangzhou, </h3>
-        <p>Bachelor of Engineering in Control Science, August 2012 - June 2016</p>
-        <p></p>
-
-      </div>
-    </section>
-  </main>
-
-
-  <!-- // Footer & contact info -->
-  <footer id="contact">
-    <div class="content-wrap">
-      <h2>Keep in Touch</h2>
-
-      <!-- Social media links. Add or remove any networks. -->
-      <div class="contact-info">
-        <a href="mailto:boruiwang2016@u.northwestern.edu"><i class="fa fa-envelope"></i></a>
-        <a href="https://fredbwang.github.io"><i class="fa fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/wbrnwu"><i class="fa fa-linkedin"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100013410913290"><i class="fa fa-facebook-square"></i></a>
-      </div>
-
-      <p>Copyright 2018 by Borui Wang</p>
-    </div>
-  </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/index.js"></script>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/index.js"></script>
 </body>
+
 </html>
