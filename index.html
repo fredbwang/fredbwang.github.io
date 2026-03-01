@@ -1,144 +1,68 @@
-<!-- template originally from christina chruang -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Go to http://fontawesome.io/get-started/ to generate your own embed code! -->
     <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fred W. | Resume</title>
+    <title>Fred W. | Home</title>
     <link rel="icon" href="assets/images/rocket.ico">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 
 <body>
-    <!-- // Intro -->
-    <header id="about">
-        <!-- PDF download removed -->
-        <nav>
-            <a href="#about">About</a>
-            <a href="#work">Work Experience</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <div class="content-wrap">
-            <img class="profile-img col-narrow" src="assets/images/portrait.png" alt="Fred W.">
-            <div class="col-wide">
-                <h1>Fred W.</h1>
-                <h2>Senior Software Engineer</h2>
-                <p>Senior Software Engineer with extensive experience designing distributed systems and cloud
-                    infrastructure. Expert in building highly available, reliable, scalable and secure orchestration
-                    services.</p>
-            </div>
+    <aside class="sidebar">
+        <div class="profile-section">
+            <img class="profile-img" src="assets/images/portrait.png" alt="Fred W.">
+            <h1>Fred W.</h1>
+            <h2>Senior Software Engineer</h2>
         </div>
-    </header>
 
-    <main>
-        <!-- // Work Experience -->
-        <section id="work" class="work">
-            <div class="content-wrap">
-                <h2>Experience</h2>
+        <nav class="main-nav">
+            <a href="index.html" class="active">Home</a>
+            <a href="blog/index.html">Blog</a>
+            <a href="about/index.html">About</a>
+        </nav>
 
-                <!-- Job 1 Details -->
-                <div class="col-narrow">
-                    <h3>Senior Software Engineer</h3>
-                    <p class="uppercase">Microsoft</p>
-                    <p>Mar. 2020 – Present</p>
-                </div>
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="fa fa-moon-o" id="theme-icon"></i>
+            <span id="theme-text">Dark Mode</span>
+        </div>
+    </aside>
 
-                <div class="col-wide job-description">
-                    <p>Distributed compute orchestration & cloud infrastructure at scale.</p>
-                    <ul>
-                        <li>Designed globally distributed compute resource management infrastructure with millions RPS
-                            throughput at multi-million machine scale.</li>
-                        <li>Led dedicated host product development offering host-level isolation and reserved capacity
-                            at multi-10k host scale.</li>
-                        <li>Key contributor to AI datacenter delivery enabling bare metal GPU connections for fast model
-                            training at multi-thousand machine scale.</li>
-                        <li>Led reliability engineering efforts including synthetic testing, regression detection, and
-                            high-speed deployment pipelines.</li>
-                    </ul>
-                </div>
+    <main class="content">
+        <section id="home">
+            <h1>Hello, I'm Fred.</h1>
+            <p>I am a Senior Software Engineer with extensive experience designing distributed systems and cloud
+                infrastructure. Currently, I focus on building highly available, reliable, scalable, and secure
+                orchestration services.</p>
 
-                <!-- Job 2 Details -->
-                <div class="col-narrow">
-                    <h3>Software Engineer</h3>
-                    <p class="uppercase">Venture-Backed Startup (Series B)</p>
-                    <p>Nov. 2018 – Mar. 2020</p>
-                </div>
-                <div class="col-wide job-description">
-                    <p>Data platform & cloud infrastructure on Kubernetes/GCP.</p>
-                    <ul>
-                        <li>Designed CI/CD pipeline with Kubernetes, Helm, Jenkins & Spinnaker, reducing deployment
-                            effort by 10x.</li>
-                        <li>Executed TB-level data migration from data warehouse to cloud-based DataLake & BigQuery.
-                        </li>
-                        <li>Led IAM & compliance re-organization for access control as part of CCPA compliance.</li>
-                    </ul>
-                </div>
+            <p>I'm passionate about exploring complex architectures and finding the most efficient, elegant solutions to
+                large-scale engineering problems.</p>
 
-                <!-- Job 3 Details -->
-                <div class="col-narrow">
-                    <h3>Software Engineer</h3>
-                    <p class="uppercase">Aerospec Technologies (Harvard Innovation Lab)</p>
-                    <p>Sept. 2017 – Nov. 2018</p>
-                </div>
-
-                <div class="col-wide job-description">
-                    <p>Full-stack development & cloud deployment on AWS.</p>
-                    <ul>
-                        <li>Built production web portal with PHP Laravel & Java on Apache, deployed on AWS for global
-                            access.</li>
-                        <li>Developed map data rendering tools and contributed to open-source geospatial libraries.</li>
-                    </ul>
-                </div>
-            </div>
+            <p>Welcome to my personal presentation and blog. Feel free to explore my background or read my latest
+                thoughts.</p>
         </section>
 
-
-        <!-- // Education -->
-        <section id="education" class="education">
-            <div class="content-wrap">
-                <h2>Education</h2>
-
-                <!-- School 1 details. -->
-                <h3>University of California, Berkeley</h3>
-                <p></p>
-
-                <!-- School 2 details. -->
-                <h3>Northwestern University</h3>
-                <p></p>
-
-                <!-- School 3 details. -->
-                <h3>Zhejiang University</h3>
-                <p></p>
-
-            </div>
-        </section>
-    </main>
-
-
-    <!-- // Footer & contact info -->
-    <footer id="contact">
-        <div class="content-wrap">
-            <h2>Keep in Touch</h2>
-
-            <!-- Social media links. Add or remove any networks. -->
-            <div class="contact-info">
+        <footer>
+            <div class="contact-links">
                 <a href="#"><i class="fa fa-envelope"></i></a>
                 <a href="#"><i class="fa fa-github"></i></a>
                 <a href="#"><i class="fa fa-linkedin"></i></a>
             </div>
-
             <p>Copyright 2026 by Fred W.</p>
-        </div>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+        </footer>
+    </main>
+
+    <script src="js/theme.js"></script>
 </body>
 
 </html>

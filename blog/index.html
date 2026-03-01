@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred W. | Blog</title>
+    <link rel="icon" href="../assets/images/rocket.ico">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <!-- Marked.js for rendering markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="profile-section">
+            <img class="profile-img" src="../assets/images/portrait.png" alt="Fred W.">
+            <h1>Fred W.</h1>
+            <h2>Senior Software Engineer</h2>
+        </div>
+
+        <nav class="main-nav">
+            <a href="../index.html">Home</a>
+            <a href="index.html" class="active">Blog</a>
+            <a href="../about/index.html">About</a>
+        </nav>
+
+        <div class="theme-toggle" id="theme-toggle">
+            <i class="fa fa-moon-o" id="theme-icon"></i>
+            <span id="theme-text">Dark Mode</span>
+        </div>
+    </aside>
+
+    <main class="content">
+        <!-- Rendered Post Content Container -->
+        <article id="content">
+            <!-- Content will be injected by markdown.js -->
+            <p>Loading post...</p>
+        </article>
+
+        <!-- Blog Post List (shown only when no specific post is requested) -->
+        <section id="post-list" style="display: none;">
+            <h1>Blog</h1>
+            <p>Thoughts on distributed systems, infrastructure, and engineering.</p>
+
+            <div class="job-item" style="margin-top: 2rem;">
+                <div class="job-header">
+                    <h3 class="job-title"><a href="?post=first-post">Building Scalable Orchestration</a></h3>
+                    <span class="job-date">Feb 28, 2026</span>
+                </div>
+                <p>Designing distributed systems at scale requires a fundamental shift in how we think about state,
+                    failure, and recovery.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="contact-links">
+                <a href="#"><i class="fa fa-envelope"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+            <p>Copyright 2026 by Fred W.</p>
+        </footer>
+    </main>
+
+    <script src="../js/theme.js"></script>
+    <script src="../js/markdown.js"></script>
+</body>
+
+</html>
