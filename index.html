@@ -11,7 +11,7 @@
     <script>
         (function () {
             var savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (savedTheme === 'dark') {
                 document.documentElement.setAttribute('data-theme', 'dark');
             }
         })();
@@ -37,9 +37,9 @@
 
             <footer>
                 <div class="contact-links">
-                    <a href="#"><i class="fa fa-envelope"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="mailto:ownerofisland+io@gmail.com"><i class="fa fa-envelope"></i></a>
+                    <a href="https://github.com/fredbwang"><i class="fa fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/borui-wang/"><i class="fa fa-linkedin"></i></a>
                 </div>
                 <p>Copyright 2026 by Fred W.</p>
             </footer>
