@@ -15,7 +15,7 @@ Ok, frontier labs are competing, and I get it. But how is it related to AI safet
 One of the biggest area of AI safety topic is how it influences the society. While now these news might look like normal business competition, just like when other new things came out, but it has the potential of a much bigger blizzard. I really hope I'm wrong about this, but as an AI optimist, this is the bullet that you can't dodge.
 
 
-## The Optimist vs Pessimist Dillema
+## The Optimist vs Pessimist Paradox
 One of the strange paradoxes of AI safety is this:
 You have to be extremely optimistic about AI’s potential to be pessimistic about AI safety.
 
@@ -24,7 +24,7 @@ If you think AI will become deeply capable—economically, cognitively, strategi
 The more powerful AI becomes, the more the safety conversation shifts from “nice to have” to “existentially necessary.”
 
 
-## The Bedrock of Universal Value
+## The Bedrock of Universal Values
 For most of human history, people weren’t equal in any meaningful sense. Rights were limited to citizens, nobles, clergy—never to everyone. Universal values like freedom and equality only emerged after the Industrial Revolution, when societies needed educated, mobile, rational workers. Human labor became economically valuable, and our moral frameworks evolved to match that reality.
 AI disrupts this foundation.
 Humans are no longer the monopoly holders of intelligence or productive capacity. If cognitive labor becomes cheap and abundant, the economic basis for universal human rights could erode. Resources may shift from developing people to developing models—chips, clusters, data centers.
