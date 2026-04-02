@@ -80,7 +80,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const inNY = c.lat >= 40 && c.lat <= 42 && c.lng >= -75 && c.lng <= -73;
             const inSeattle = c.lat >= 46 && c.lat <= 48 && c.lng >= -123 && c.lng <= -121;
             const inBoston = c.lat >= 41 && c.lat <= 43 && c.lng >= -72 && c.lng <= -70;
-            return inBeijing || inShanghaiAndHangzhou || inShenzhen || inBayArea || inLA || inNY || inSeattle || inBoston;
+            const inAustin = c.lat >= 29.5 && c.lat <= 31 && c.lng >= -99 && c.lng <= -96.5;
+            const inLondon = c.lat >= 51 && c.lat <= 52 && c.lng >= -1 && c.lng <= 1;
+            const inParis = c.lat >= 48 && c.lat <= 49 && c.lng >= 1.5 && c.lng <= 3.5;
+            const inTorontoMontreal = c.lat >= 43 && c.lat <= 46.5 && c.lng >= -80 && c.lng <= -72.5;
+            const inTelAviv = c.lat >= 31.5 && c.lat <= 32.5 && c.lng >= 34 && c.lng <= 35.5;
+            const inTokyo = c.lat >= 35 && c.lat <= 36.5 && c.lng >= 139 && c.lng <= 140.5;
+
+            return inBeijing || inShanghaiAndHangzhou || inShenzhen || inBayArea || inLA || inNY || inSeattle || inBoston || 
+                   inAustin || inLondon || inParis || inTorontoMontreal || inTelAviv || inTokyo;
         };
 
         if (rankName === "The Monarch") {
