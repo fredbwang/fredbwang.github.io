@@ -7,8 +7,7 @@ Dockerfile.jekyll
 .playwright-mcp/
 
 # Generated screenshots (root level only)
-/homepage_preview.png
-/jekyll_*.png
+/*.png
 
 # OS files
 .DS_Store

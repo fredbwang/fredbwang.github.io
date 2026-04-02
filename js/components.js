@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Detect base path from Jekyll's baseurl (injected via meta tag in layout)
+    const baseEl = document.querySelector('meta[name="baseurl"]');
+    const base = baseEl ? baseEl.content : '';
+
     // Determine active tab
     const path = window.location.pathname;
     const isBlog = path.includes('/blog');
@@ -9,15 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarHTML = `
     <aside class="sidebar">
         <div class="profile-section">
-            <img class="profile-img" src="/assets/images/portrait.png" alt="Duke of AI">
+            <img class="profile-img" src="${base}/assets/images/portrait.png" alt="Duke of AI">
             <h1>Duke of AI</h1>
             <h2>Senior Software Engineer @ Microsoft<br>Distributed Systems & Cloud Infrastructure</h2>
         </div>
         
         <nav class="main-nav">
-            <a href="/" class="${isHome ? 'active' : ''}">Home</a>
-            <a href="/blog/" class="${isBlog ? 'active' : ''}">Blog</a>
-            <a href="/about/" class="${isAbout ? 'active' : ''}">About</a>
+            <a href="${base}/" class="${isHome ? 'active' : ''}">Home</a>
+            <a href="${base}/blog/" class="${isBlog ? 'active' : ''}">Blog</a>
+            <a href="${base}/about/" class="${isAbout ? 'active' : ''}">About</a>
         </nav>
 
         <div class="theme-toggle" id="theme-toggle">
