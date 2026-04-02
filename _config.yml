@@ -1,0 +1,24 @@
+# Site settings
+title: Duke of AI
+description: Personal site and blog — distributed systems, cloud infrastructure, and engineering thoughts.
+author: Duke of AI
+url: "https://duke-of-ai.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+kramdown:
+  input: GFM  # GitHub Flavored Markdown
+
+# Permalink style for blog posts
+permalink: /blog/:title/
+
+# Exclude files from the Jekyll build
+exclude:
+  - README.md
+  - LICENSE
+  - node_modules
+  - .git
+  - .github
+  - homepage_preview.png
+  - .playwright-mcp

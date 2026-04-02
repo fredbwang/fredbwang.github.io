@@ -1,8 +1,29 @@
----
-layout: default
-title: Duke of AI | About
----
-<section id="work">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duke of AI | About</title>
+    <link rel="icon" href="/assets/images/rocket.ico">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    
+</head>
+
+<body>
+    <!-- Sidebar injected by JS -->
+    <main class="content">
+        <div class="content-wrapper">
+            <section id="work">
     <h2>Experience</h2>
 
     <div class="job-item">
@@ -78,3 +99,21 @@ title: Duke of AI | About
         </div>
     </div>
 </section>
+
+            <footer>
+    <div class="contact-links">
+        <a href="mailto:ownerofisland+io@gmail.com"><i class="fa fa-envelope"></i></a>
+        <a href="https://github.com/duke-of-ai"><i class="fa fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/borui-wang/"><i class="fa fa-linkedin"></i></a>
+    </div>
+    <p>Copyright 2026 by Duke of AI.</p>
+</footer>
+
+        </div>
+    </main>
+
+    <script src="/js/components.js"></script>
+    
+</body>
+
+</html>

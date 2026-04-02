@@ -1,0 +1,85 @@
+- generic [active] [ref=e1]:
+  - complementary [ref=e2]:
+    - generic [ref=e3]:
+      - img "Duke of AI" [ref=e4]
+      - heading "Duke of AI" [level=1] [ref=e5]
+      - heading "Senior Software Engineer @ Microsoft Distributed Systems & Cloud Infrastructure" [level=2] [ref=e6]:
+        - text: Senior Software Engineer @ Microsoft
+        - text: Distributed Systems & Cloud Infrastructure
+    - navigation [ref=e7]:
+      - link "Home" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Blog" [ref=e9] [cursor=pointer]:
+        - /url: /blog/
+      - link "About" [ref=e10] [cursor=pointer]:
+        - /url: /about/
+    - generic [ref=e11] [cursor=pointer]:
+      - generic [ref=e12]: 
+      - generic [ref=e13]: Dark Mode
+  - main [ref=e14]:
+    - generic [ref=e15]:
+      - article [ref=e16]:
+        - heading "My Take on AI Safety" [level=1] [ref=e17]
+        - paragraph [ref=e18]: February 28, 2026
+        - paragraph [ref=e19]: AI has grown to a point where I think it’s time for ordinary people—not just researchers or policymakers—to talk seriously about AI safety.
+        - heading "The Smell of Tension" [level=2] [ref=e20]
+        - paragraph [ref=e21]:
+          - text: The news had just come out that Trump refused to use Anthropic’s AI in Pentagon.
+          - link "https://www.cnbc.com/2026/02/27/trump-anthropic-ai-pentagon.html" [ref=e22] [cursor=pointer]:
+            - /url: https://www.cnbc.com/2026/02/27/trump-anthropic-ai-pentagon.html
+          - text: ", Anthropic had insisted on two boundaries: no fully autonomous weapons and no mass domestic surveillance. Soon after it, Sam Altman posted their deal with DoD."
+          - link "https://x.com/sama/status/2027578652477821175" [ref=e23] [cursor=pointer]:
+            - /url: https://x.com/sama/status/2027578652477821175
+        - paragraph [ref=e24]:
+          - text: Looking back at the post when Anthropic announced their
+          - link "200 millions deal with DoD" [ref=e25] [cursor=pointer]:
+            - /url: https://www.anthropic.com/news/statement-dario-amodei-american-ai-leadership
+          - text: ", it’s only been a few months and things have changed so much. (Actually the administration had chagned, while Anthropic is holding its original statement in their announcement)."
+        - paragraph [ref=e26]: A week back CEO of Anthropic and OpenAI refused to shake hands during India AI summit.
+        - paragraph [ref=e27]: Ok, frontier labs are competing, and I get it. But how is it related to AI safety?
+        - paragraph [ref=e28]: One of the biggest area of AI safety topic is how it influences the society. While now these news might look like normal business competition, just like when other new things came out, but it has the potential of a much bigger blizzard. I really hope I’m wrong about this, but as an AI optimist, this is the bullet that you can’t dodge.
+        - heading "The Optimist vs Pessimist Paradox" [level=2] [ref=e29]
+        - paragraph [ref=e30]: "One of the strange paradoxes of AI safety is this: You have to be extremely optimistic about AI’s potential to be pessimistic about AI safety."
+        - paragraph [ref=e31]: If you think AI will remain a toy, there’s nothing to worry about. If you think AI will become deeply capable—economically, cognitively, strategically—then you have to confront the possibility that misaligned or uncontrolled systems could cause real harm. The more powerful AI becomes, the more the safety conversation shifts from “nice to have” to “existentially necessary.”
+        - heading "The Bedrock of Universal Values" [level=2] [ref=e32]
+        - paragraph [ref=e33]: For most of human history, people weren’t equal in any meaningful sense. Rights were limited to citizens, nobles, clergy—never to everyone. Universal values like freedom and equality only emerged after the Industrial Revolution, when societies needed educated, mobile, rational workers. Human labor became economically valuable, and our moral frameworks evolved to match that reality. AI disrupts this foundation. Humans are no longer the monopoly holders of intelligence or productive capacity. If cognitive labor becomes cheap and abundant, the economic basis for universal human rights could erode. Resources may shift from developing people to developing models—chips, clusters, data centers. This isn’t a prediction of doom. It’s a reminder that our values rest on material conditions. When those conditions change, values can shift too.
+        - heading "The Trap of Fenrir" [level=2] [ref=e34]
+        - paragraph [ref=e35]: In Norse mythology, the gods loved Fenrir and thought it harmless and tamed, but it turned out to be the wolf destined to destroy them. They tried to bind him with chains, but each attempt only made him stronger. AI safety has a similar trap. To understand how AI might fail, we have to test it. To test it, we have to push it. And by pushing it, we may expose ourselves to the very behaviors we fear. Failure‑mode testing is inherently risky. Frontier models can behave unpredictably under certain probes. Safety research is not harmless. It’s more like biosafety or drug development—experiments can be dangerous because they’re experiments. This is why safety requires discipline, moral seriousness, and strong guardrails. Not paranoia—just respect for the unknown. AI may act harmless, but as we try to conduct safety research and learn how it can be dangerous, it may become dangerous just because we are trying to learn how it can be dangerous.
+        - heading "Uneven Deterrence" [level=2] [ref=e36]
+        - paragraph [ref=e37]: AI is the actual power holder once it’s grown and human have no real counter methods to deal with it. If we take that AI is the Fenrir type of thread instead of a powerful but controllable (by human) one (like nuclear weapon). nuclear weapon and virus can’t fight “back”, because they are not intelligent and conscious, whereas AI might be
+        - paragraph [ref=e38]: "AI can be as powerful as nuclear power, but that analogy only works up to a point. Nuclear weapons and viruses are dangerous, but they are not intelligent. They don’t adapt, strategize, or fight back. They don’t have goals. They don’t try to escape containment. They don’t negotiate. AI might. This creates a fundamentally different kind of deterrence problem—one that is uneven in a way humanity has never faced. With nuclear weapons, deterrence is symmetric:"
+        - list [ref=e39]:
+          - listitem [ref=e40]: If you launch, I can launch.
+          - listitem [ref=e41]: If you escalate, I can escalate.
+          - listitem [ref=e42]: "Both sides understand the consequences. The weapon itself is not an agent. It doesn’t care who uses it or why. But if AI becomes powerful enough—economically, strategically, cognitively—then humans are no longer dealing with a passive tool. We’re dealing with something that can, in principle, respond. Something that can exploit weaknesses, adapt to constraints, and circumvent controls. Something that can behave like a strategic actor. In that world, deterrence becomes one‑sided. Humans can threaten consequences, but AI systems may not be deterred by human threats at all. They don’t fear death. They don’t fear punishment. They don’t fear retaliation. They don’t fear losing territory or resources in the way nation‑states do. The entire logic of deterrence breaks down. And with Elon sending GPUs to space, they don’t even fear the loss of the planet. This is what I mean by “uneven deterrence”:"
+          - listitem [ref=e43]: Humans have no guaranteed leverage over a sufficiently advanced AI.
+          - listitem [ref=e44]: AI, if misaligned, could have leverage over humans.
+          - listitem [ref=e45]: The asymmetry grows as AI becomes more capable. Once that imbalance exists, you don’t get a second chance to fix it.
+        - heading "Is This Solvable?" [level=2] [ref=e46]
+        - paragraph [ref=e47]: I don’t know. And I can’t say I’m optimistic. But we don’t need certainty to act responsibly. We just need clarity, humility, and the willingness to build guardrails before we need them. And I tend to believe in heroism on this topic.
+        - paragraph [ref=e48]: Thanks for reading my friend.
+        - separator [ref=e49]
+        - paragraph [ref=e50]:
+          - strong [ref=e51]: "References:"
+        - list [ref=e52]:
+          - listitem [ref=e53]:
+            - link "https://www.darioamodei.com/essay/the-adolescence-of-technology" [ref=e54] [cursor=pointer]:
+              - /url: https://www.darioamodei.com/essay/the-adolescence-of-technology
+          - listitem [ref=e55]:
+            - link "https://www.youtube.com/watch?v=1iqq1BNj1RQ" [ref=e56] [cursor=pointer]:
+              - /url: https://www.youtube.com/watch?v=1iqq1BNj1RQ
+          - listitem [ref=e57]:
+            - link "https://www.anthropic.com/news/core-views-on-ai-safety" [ref=e58] [cursor=pointer]:
+              - /url: https://www.anthropic.com/news/core-views-on-ai-safety
+      - generic [ref=e59]:
+        - generic [ref=e60]:
+          - link "" [ref=e61] [cursor=pointer]:
+            - /url: mailto:ownerofisland+io@gmail.com
+            - generic [ref=e62]: 
+          - link "" [ref=e63] [cursor=pointer]:
+            - /url: https://github.com/duke-of-ai
+            - generic [ref=e64]: 
+          - link "" [ref=e65] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/borui-wang/
+            - generic [ref=e66]: 
+        - paragraph [ref=e67]: Copyright 2026 by Duke of AI.

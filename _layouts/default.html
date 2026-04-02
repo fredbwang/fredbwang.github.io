@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://use.fontawesome.com/6e47fdd73a.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="icon" href="{{ '/assets/images/rocket.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/styles.css' | relative_url }}">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    {% if page.extra_head %}
+    {{ page.extra_head }}
+    {% endif %}
+</head>
+
+<body>
+    <!-- Sidebar injected by JS -->
+    <main class="content">
+        <div class="content-wrapper">
+            {{ content }}
+
+            {% include footer.html %}
+        </div>
+    </main>
+
+    <script src="{{ '/js/components.js' | relative_url }}"></script>
+    {% if page.extra_scripts %}
+    {{ page.extra_scripts }}
+    {% endif %}
+</body>
+
+</html>
