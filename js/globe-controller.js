@@ -10,20 +10,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch accurate global population data
     fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/world_population.csv')
-      .then(res => res.text())
+      .then(res => {
+          if (!res.ok) throw new Error('Network response not ok');
+          return res.text();
+      })
+      .catch(() => fetch('/assets/globe_data/world_population.csv').then(res => res.text()))
       .then(csv => {
           globalPopData = csv.split('\n').slice(1).map(line => {
               const [lat, lng, pop] = line.split(',');
               if(!lat || !lng) return null;
               return { lat: +lat, lng: +lng, pop: +pop };
-          }).filter(Boolean);
+          }).filter(Boolean).sort((a, b) => b.pop - a.pop);
           
           if (myGlobe) updateGlobeData();
       });
 
     // Fetch countries GeoJSON for contours
     fetch('https://raw.githubusercontent.com/vasturiano/globe.gl/master/example/datasets/ne_110m_admin_0_countries.geojson')
-      .then(res => res.json())
+      .then(res => {
+          if (!res.ok) throw new Error('Network response not ok');
+          return res.json();
+      })
+      .catch(() => fetch('/assets/globe_data/ne_110m_admin_0_countries.geojson').then(res => res.json()))
       .then(geojson => {
           countriesGeojson = geojson.features;
           if (myGlobe) updateGlobeData();
@@ -32,15 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateGlobeTheme() {
         if (!myGlobe) return;
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        
+
         if (isDark) {
             myGlobe.globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-                   .showGlobe(true)
-                   .showAtmosphere(true);
+                .showGlobe(true)
+                .showAtmosphere(true);
         } else {
             myGlobe.globeImageUrl('')
-                   .showGlobe(false)
-                   .showAtmosphere(false);
+                .showGlobe(false)
+                .showAtmosphere(false);
         }
         // re-render points since base coloring depends on theme
         if (globalPopData.length) updateGlobeData();
@@ -48,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const themeObserver = new MutationObserver((mutations) => {
         mutations.forEach(m => {
-            if(m.attributeName === 'data-theme') updateGlobeTheme();
+            if (m.attributeName === 'data-theme') updateGlobeTheme();
         });
     });
     themeObserver.observe(document.documentElement, { attributes: true });
@@ -61,50 +69,66 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!globalPopData.length) return;
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
         const baseColor = isDark ? 'rgba(255,255,255, 0.05)' : 'rgba(0,0,0, 0.15)';
-        const highlightColor = isDark ? '#10b981' : '#d4a373'; 
-        
+        const highlightColor = isDark ? '#10b981' : '#d4a373';
+
         const { num, isTop3, rankName } = currentRankData;
 
-        // Determine active subset size
-        let activeCount = Math.max(5, Math.floor(globalPopData.length * (num / 100)));
-        if (num < 0.1) activeCount = Math.max(5, Math.floor(globalPopData.length * 0.005));
+        // Determine active subset size naturally
+        let activeCount = Math.floor(globalPopData.length * (num / 100));
+        
+        // Manual scaling overrides for low tiers to preserve visual mass & mathematically scale down properly to Monarch's 35-dot array
+        if (rankName === "The Freeman") activeCount = Math.max(activeCount, 150);
+        if (rankName === "The Earl") activeCount = 90;
+        if (rankName === "The Duke") activeCount = 55;
 
         let eligible = globalPopData;
+        let selectedSet = new Set();
 
-        const isTechHub = (c) => {
-            const inBeijing = c.lat >= 39 && c.lat <= 41 && c.lng >= 115 && c.lng <= 118;
-            const inShanghaiAndHangzhou = c.lat >= 29 && c.lat <= 32 && c.lng >= 119 && c.lng <= 122;
-            const inShenzhen = c.lat >= 22 && c.lat <= 24 && c.lng >= 112 && c.lng <= 115;
-            const inBayArea = c.lat >= 37 && c.lat <= 39 && c.lng >= -123 && c.lng <= -121;
-            const inLA = c.lat >= 33 && c.lat <= 35 && c.lng >= -119 && c.lng <= -117;
-            const inNY = c.lat >= 40 && c.lat <= 42 && c.lng >= -75 && c.lng <= -73;
-            const inSeattle = c.lat >= 46 && c.lat <= 48 && c.lng >= -123 && c.lng <= -121;
-            const inBoston = c.lat >= 41 && c.lat <= 43 && c.lng >= -72 && c.lng <= -70;
-            const inAustin = c.lat >= 29.5 && c.lat <= 31 && c.lng >= -99 && c.lng <= -96.5;
-            const inLondon = c.lat >= 51 && c.lat <= 52 && c.lng >= -1 && c.lng <= 1;
-            const inParis = c.lat >= 48 && c.lat <= 49 && c.lng >= 1.5 && c.lng <= 3.5;
-            const inTorontoMontreal = c.lat >= 43 && c.lat <= 46.5 && c.lng >= -80 && c.lng <= -72.5;
-            const inTelAviv = c.lat >= 31.5 && c.lat <= 32.5 && c.lng >= 34 && c.lng <= 35.5;
-            const inTokyo = c.lat >= 35 && c.lat <= 36.5 && c.lng >= 139 && c.lng <= 140.5;
+        const hubTests = [
+            { name: "Beijing", test: c => c.lat >= 39 && c.lat <= 41 && c.lng >= 115 && c.lng <= 118, count: 4 },
+            { name: "Shanghai", test: c => c.lat >= 29 && c.lat <= 32 && c.lng >= 119 && c.lng <= 122, count: 4 },
+            { name: "Shenzhen", test: c => c.lat >= 22 && c.lat <= 24 && c.lng >= 112 && c.lng <= 115, count: 3 },
+            { name: "BayArea", test: c => c.lat >= 37 && c.lat <= 39 && c.lng >= -123 && c.lng <= -121, count: 6 },
+            { name: "LA", test: c => c.lat >= 33 && c.lat <= 35 && c.lng >= -119 && c.lng <= -117, count: 2 },
+            { name: "NY", test: c => c.lat >= 40 && c.lat <= 42 && c.lng >= -75 && c.lng <= -73, count: 3 },
+            { name: "Seattle", test: c => c.lat >= 46 && c.lat <= 48 && c.lng >= -123 && c.lng <= -121, count: 2 },
+            { name: "Boston", test: c => c.lat >= 41 && c.lat <= 43 && c.lng >= -72 && c.lng <= -70, count: 2 },
+            { name: "Austin", test: c => c.lat >= 29.5 && c.lat <= 31 && c.lng >= -99 && c.lng <= -96.5, count: 2 },
+            { name: "London", test: c => c.lat >= 51 && c.lat <= 52 && c.lng >= -1 && c.lng <= 1, count: 3 },
+            { name: "Toronto", test: c => c.lat >= 43 && c.lat <= 46.5 && c.lng >= -80 && c.lng <= -72.5, count: 2 },
+        ];
 
-            return inBeijing || inShanghaiAndHangzhou || inShenzhen || inBayArea || inLA || inNY || inSeattle || inBoston || 
-                   inAustin || inLondon || inParis || inTorontoMontreal || inTelAviv || inTokyo;
-        };
+        const isTechHub = (c) => hubTests.some(h => h.test(c));
 
-        if (rankName === "The Monarch") {
-            // Strictly specific Tech Hubs
-            eligible = globalPopData.filter(isTechHub);
-        } else if (isTop3) {
-            // The Earl, The Duke (+EU)
-            eligible = globalPopData.filter(c => {
-                const inEU = c.lat >= 40 && c.lat <= 60 && c.lng >= -10 && c.lng <= 30;
-                return isTechHub(c) || inEU;
+        if (isTop3) {
+            let scalar = 1;
+            if (rankName === "The Duke") scalar = 1.8;
+            if (rankName === "The Earl") scalar = 3.0;
+
+            let shuffled = [...globalPopData].sort(() => 0.5 - Math.random());
+            hubTests.forEach(hub => {
+                let found = 0;
+                let targetCount = Math.max(1, Math.floor(hub.count * scalar));
+                for (let c of shuffled) {
+                    if (hub.test(c)) {
+                        selectedSet.add(c);
+                        found++;
+                        if (found >= targetCount) break;
+                    }
+                }
             });
+
+            if (rankName !== "The Monarch") {
+                let euEligible = globalPopData.filter(c => c.lat >= 40 && c.lat <= 60 && c.lng >= -10 && c.lng <= 30);
+                let euCount = rankName === "The Duke" ? 15 : 35;
+                let step = Math.max(1, Math.floor(euEligible.length / euCount));
+                euEligible.filter((_, i) => i % step === 0).slice(0, euCount).forEach(c => selectedSet.add(c));
+            }
+        } else {
+            // Systematic deterministic sampling for Freeman and lower tiers natively down the population
+            const step = Math.max(1, Math.floor(eligible.length / activeCount));
+            selectedSet = new Set(eligible.filter((_, i) => i % step === 0).slice(0, activeCount));
         }
-        
-        // Randomly pick `activeCount` from eligible
-        let shuffled = [...eligible].sort(() => 0.5 - Math.random());
-        let selectedSet = new Set(shuffled.slice(0, activeCount));
 
         const gData = globalPopData.map(c => {
             const active = selectedSet.has(c);
@@ -121,10 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (countriesGeojson) {
             const strokeColor = isDark ? 'rgba(255,255,255, 0.15)' : 'rgba(0,0,0, 0.15)';
             myGlobe.polygonsData(countriesGeojson)
-                   .polygonCapColor(() => 'rgba(0,0,0,0)')
-                   .polygonSideColor(() => 'rgba(0,0,0,0)')
-                   .polygonStrokeColor(() => strokeColor)
-                   .polygonAltitude(0.005);
+                .polygonCapColor(() => 'rgba(0,0,0,0)')
+                .polygonSideColor(() => 'rgba(0,0,0,0)')
+                .polygonStrokeColor(() => strokeColor)
+                .polygonAltitude(0.005);
         }
     }
 
@@ -134,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const tr = e.target.closest('tr');
             const rankName = tr.querySelector('td:nth-child(1)').innerText.trim();
             const pctStr = e.target.innerText.trim();
-            
+
             container.classList.add('has-globe');
 
             const top3 = ["The Earl", "The Duke", "The Monarch"];
@@ -145,11 +169,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!myGlobe) {
                 myGlobe = Globe()(viz)
-                  .backgroundColor('rgba(0,0,0,0)')
-                  .pointAltitude(0.015)
-                  .pointColor('color')
-                  .pointRadius('size');
-                  
+                    .backgroundColor('rgba(0,0,0,0)')
+                    .pointAltitude(0.015)
+                    .pointColor('color')
+                    .pointRadius('size');
+
                 myGlobe.controls().autoRotate = true;
                 myGlobe.controls().autoRotateSpeed = 2.0;
 
