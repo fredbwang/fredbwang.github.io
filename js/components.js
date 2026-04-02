@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const path = window.location.pathname;
     const isBlog = path.includes('/blog');
     const isAbout = path.includes('/about');
-    const isHome = !isBlog && !isAbout;
+    const isRank = path.includes('/rank-yourself');
+    const isHome = !isBlog && !isAbout && !isRank;
 
     // Inject Sidebar HTML
     const sidebarHTML = `
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="${base}/" class="${isHome ? 'active' : ''}">Home</a>
             <a href="${base}/blog/" class="${isBlog ? 'active' : ''}">Blog</a>
             <a href="${base}/about/" class="${isAbout ? 'active' : ''}">About</a>
+            <a href="${base}/rank-yourself/" class="${isRank ? 'active' : ''}">Rank Yourself</a>
         </nav>
 
         <div class="theme-toggle" id="theme-toggle">
