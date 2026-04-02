@@ -22,3 +22,4 @@ exclude:
   - .github
   - homepage_preview.png
   - .playwright-mcp
+  - static_archive
