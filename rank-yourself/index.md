@@ -7,7 +7,7 @@ title: Duke of AI | Rank Yourself
     <div id="rank-inner" style="display: flex; flex-wrap: nowrap; transition: all 0.5s ease; position: relative;">
         <div id="rank-content" style="flex: 1 1 100%; min-width: 0; transition: flex 0.5s ease;">
             <h1>Where Do You Rank?</h1>
-            <p>In the near future, our value and capabilities will be inherently linked to our fluency with Artificial Intelligence. This living glossary serves as a checklist to help you identify your current tier in the new AI hierarchy.</p>
+            <p>In the near future, our value and capabilities will be inherently linked to our fluency with AI. This living glossary serves as a checklist to help you identify your current tier in the new AI hierarchy.</p>
             <p>Review the metrics below and honestly assess where you stand. The goal isn't just to find yourself—it's to figure out what it takes to level up.</p>
         
             <div class="table-wrapper" style="margin-top: 2.5rem; overflow-x: auto;">

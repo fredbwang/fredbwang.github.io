@@ -42,27 +42,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 
         if (isDark) {
-            myGlobe.globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-                .showGlobe(true)
+            myGlobe.showGlobe(true)
                 .showAtmosphere(true);
         } else {
-            myGlobe.globeImageUrl('')
-                .showGlobe(false)
+            myGlobe.showGlobe(false)
                 .showAtmosphere(false);
         }
-        // re-render points since base coloring depends on theme
-        if (globalPopData.length) updateGlobeData();
+
+        // Dynamically update Accessors without destroying/flashing the physical node geometries
+        const baseColor = isDark ? 'rgba(255,255,255, 0.05)' : 'rgba(0,0,0, 0.15)';
+        const highlightColor = isDark ? '#10b981' : '#d4a373';
+        myGlobe.pointColor(d => d.active ? highlightColor : baseColor);
+
+        if (countriesGeojson) {
+            const strokeColor = isDark ? 'rgba(255,255,255, 0.15)' : 'rgba(0,0,0, 0.15)';
+            myGlobe.polygonStrokeColor(() => strokeColor);
+        }
     }
 
+    let themeTimeout;
     const themeObserver = new MutationObserver((mutations) => {
         mutations.forEach(m => {
-            if (m.attributeName === 'data-theme') updateGlobeTheme();
+            if (m.attributeName === 'data-theme') {
+                clearTimeout(themeTimeout);
+                // Defer WebGL compilation to allow smooth ~300ms CSS background transitions to finish without dropping frames
+                themeTimeout = setTimeout(updateGlobeTheme, 350);
+            }
         });
     });
     themeObserver.observe(document.documentElement, { attributes: true });
 
     closeBtn.addEventListener('click', () => {
         container.classList.remove('has-globe');
+        document.querySelectorAll('tr[data-rank]').forEach(r => r.classList.remove('active-row'));
+        const wrapper = document.querySelector('.content-wrapper');
+        if (wrapper) wrapper.classList.remove('theater-mode');
     });
 
     function updateGlobeData() {
@@ -81,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (rankName === "The Earl") activeCount = 90;
         if (rankName === "The Duke") activeCount = 55;
 
-        let eligible = globalPopData;
         let selectedSet = new Set();
 
         const hubTests = [
@@ -97,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "London", test: c => c.lat >= 51 && c.lat <= 52 && c.lng >= -1 && c.lng <= 1, count: 3 },
             { name: "Toronto", test: c => c.lat >= 43 && c.lat <= 46.5 && c.lng >= -80 && c.lng <= -72.5, count: 2 },
         ];
-
-        const isTechHub = (c) => hubTests.some(h => h.test(c));
 
         if (isTop3) {
             let scalar = 1;
@@ -126,8 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             // Systematic deterministic sampling for Freeman and lower tiers natively down the population
-            const step = Math.max(1, Math.floor(eligible.length / activeCount));
-            selectedSet = new Set(eligible.filter((_, i) => i % step === 0).slice(0, activeCount));
+            const step = Math.max(1, Math.floor(globalPopData.length / activeCount));
+            selectedSet = new Set(globalPopData.filter((_, i) => i % step === 0).slice(0, activeCount));
         }
 
         const gData = globalPopData.map(c => {
@@ -136,18 +147,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 lat: c.lat,
                 lng: c.lng,
                 size: active ? (Math.random() * 0.15 + 0.1) : 0.02,
-                color: active ? highlightColor : baseColor
+                active: active
             };
         });
 
+        myGlobe.pointColor(d => d.active ? highlightColor : baseColor);
         myGlobe.pointsData(gData);
 
-        if (countriesGeojson) {
-            const strokeColor = isDark ? 'rgba(255,255,255, 0.15)' : 'rgba(0,0,0, 0.15)';
+        if (countriesGeojson && !myGlobe.polygonsData().length) {
             myGlobe.polygonsData(countriesGeojson)
                 .polygonCapColor(() => 'rgba(0,0,0,0)')
                 .polygonSideColor(() => 'rgba(0,0,0,0)')
-                .polygonStrokeColor(() => strokeColor)
+                .polygonStrokeColor(() => document.documentElement.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255, 0.15)' : 'rgba(0,0,0, 0.15)')
                 .polygonAltitude(0.005);
         }
     }
@@ -160,6 +171,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const pctStr = e.target.innerText.trim();
 
             container.classList.add('has-globe');
+            const wrapper = document.querySelector('.content-wrapper');
+            if (wrapper) wrapper.classList.add('theater-mode');
 
             const top3 = ["The Earl", "The Duke", "The Monarch"];
             const isTop3 = top3.includes(rankName);
@@ -170,8 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!myGlobe) {
                 myGlobe = Globe()(viz)
                     .backgroundColor('rgba(0,0,0,0)')
+                    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
                     .pointAltitude(0.015)
-                    .pointColor('color')
                     .pointRadius('size');
 
                 myGlobe.controls().autoRotate = true;

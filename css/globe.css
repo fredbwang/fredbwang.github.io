@@ -33,7 +33,14 @@
 }
 #close-globe:hover { opacity: 1; }
 
-@media (max-width: 900px) {
+.content-wrapper {
+    transition: max-width 0.5s ease;
+}
+.content-wrapper.theater-mode {
+    max-width: 1250px;
+}
+
+@media (max-width: 1250px) {
     #rank-inner.has-globe { flex-direction: column-reverse; }
     #rank-inner.has-globe #globe-container-wrap {
         width: 100%;
